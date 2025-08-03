@@ -6,6 +6,8 @@ public class PlayerMovement : MonoBehaviour
 {
     private PlayerInputHandler inputHandler;
     private Vector3 destination;
+    
+    [SerializeField] private InteractionManager interactionManager;
 
     void Awake()
     {
@@ -23,6 +25,8 @@ public class PlayerMovement : MonoBehaviour
         {
             destination = hitInfo.point;
             GetComponent<NavMeshAgent>().SetDestination(destination);
+
+            interactionManager.HandleClick(hitInfo);
         }
     }
 

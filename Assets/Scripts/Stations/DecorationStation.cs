@@ -4,7 +4,7 @@ public class DecorationStation : InteractableStation
 {
     protected override void Interact()
     {
-        if(playerNear)
-            print("Decoration activated!");
+        if(PlayerNear)
+            print("Placed cake on decoration station");
     }
 }

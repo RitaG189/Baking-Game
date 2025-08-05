@@ -3,7 +3,7 @@ using UnityEngine.UI;
 
 public abstract class InteractableStation : MonoBehaviour, IClickable
 {
-    protected bool playerNear = false;
+    public bool PlayerNear { get; private set; } = false;
     protected bool wasClicked = false;
 
     private Image taskIndicator;
@@ -13,8 +13,7 @@ public abstract class InteractableStation : MonoBehaviour, IClickable
     {
         wasClicked = true;
 
-        taskIndicator = gameObject.GetComponentInChildren<Image>();
-        taskIndicator.enabled = true;
+        SetTaskIndicatorActive(true);
 
         TryActivate();
     }
@@ -22,29 +21,37 @@ public abstract class InteractableStation : MonoBehaviour, IClickable
     public void CancelClick()
     {
         wasClicked = false;
-        taskIndicator.enabled = false;
+        SetTaskIndicatorActive(false);
         Debug.Log("Click cancelled");
     }
 
     public void TryActivate()
     {
-        if (wasClicked && playerNear)
+        if (wasClicked && PlayerNear)
         {
-            taskIndicator.enabled = false;
+            SetTaskIndicatorActive(false);
             Interact();
             wasClicked = false;
         }
     }
 
-    void OnTriggerEnter(Collider other)
+    private void OnTriggerEnter(Collider other)
     {
-        playerNear = true;
+        PlayerNear = true;
         TryActivate();
     }
 
-    void OnTriggerExit(Collider other)
+    private void OnTriggerExit(Collider other)
     {
-        playerNear = false;
+        PlayerNear = false;
+    }
+
+    private void SetTaskIndicatorActive(bool isActive)
+    {
+        if(taskIndicator == null)
+            taskIndicator = gameObject.GetComponentInChildren<Image>();
+
+        taskIndicator.enabled = isActive;
     }
 
     // Método que cada estação vai implementar

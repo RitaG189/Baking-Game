@@ -4,7 +4,7 @@ public class BoxesStation : InteractableStation
 {
     protected override void Interact()
     {
-        if(playerNear)
-            print("Box activated!");
+        if(PlayerNear)
+            print("Placed cake inside box");
     }
 }

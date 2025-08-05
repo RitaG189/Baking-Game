@@ -5,7 +5,7 @@ public class MixerStation : InteractableStation
 {
     protected override void Interact()
     {
-        if(playerNear)
+        if(PlayerNear)
             print("Mixer activated!");
     }
 }

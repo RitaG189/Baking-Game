@@ -6,5 +6,7 @@ public class ToppingSO : ScriptableObject
 {
     public string toppingName;
     public Image sprite;
-    public GameObject prefab;
+    public GameObject prefabRound;
+    public GameObject prefabSquare;
+
 }

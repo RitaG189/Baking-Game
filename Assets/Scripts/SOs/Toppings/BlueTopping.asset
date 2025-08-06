@@ -14,4 +14,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   toppingName: Blue
   sprite: {fileID: 0}
-  prefab: {fileID: 0}
+  prefabRound: {fileID: 8201370368692729302, guid: c5a27b5bda953c24faa81c0ed6b8f27e, type: 3}
+  prefabSquare: {fileID: 8201370368692729302, guid: 4f285f001de86794d9606b15cffb3664, type: 3}

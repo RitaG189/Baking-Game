@@ -9,7 +9,7 @@ public class GarbageStation : InteractableStation
         if (PlayerNear)
         {
             // finds gameobject with name "cake" on player's hand
-            GameObject cake = PlayerManager.Instance.GetCakeOnHands();
+            GameObject cake = PlayerManager.Instance.GetItemOnHands();
 
             if (cake != null)
                 ThrowAway(cake);

@@ -1,14 +1,15 @@
 using UnityEngine;
 using UnityEngine.UI;
 
-public class ToppingOption : MonoBehaviour, IClickable
+public class ShapesOption : MonoBehaviour, IClickable
 {
     protected bool wasClicked = false;
 
     private Image taskIndicator;
 
-    [SerializeField] private BaseStation toppingStation;
-    [SerializeField] private ToppingSO toppingSO;
+    [SerializeField] private BaseStation shapeStation;
+    [SerializeField] private Transform placeItem;
+    [SerializeField] private ShapeSO shapeSO;
 
     public void OnClick()
     {
@@ -27,7 +28,7 @@ public class ToppingOption : MonoBehaviour, IClickable
 
     public void TryActivate()
     {
-        if (wasClicked && toppingStation.PlayerNear)
+        if (wasClicked && shapeStation.PlayerNear)
         {
             SetTaskIndicatorActive(false);
             Interact();
@@ -45,14 +46,18 @@ public class ToppingOption : MonoBehaviour, IClickable
 
     private void Interact()
     {
-        if (toppingStation.IsItemOnStation)
+        if (shapeStation.IsItemOnStation)
         {
-            Cake cake = toppingStation.GetComponentInChildren<Cake>();
+            Dough dough = shapeStation.GetComponentInChildren<Dough>();
 
-            if (cake.Topping == null && cake.Decoration == null && cake.IsCooked && cake.IsOnBox == false)
+            if (dough != null)
             {
-                cake.RemoveShape();
-                cake.SetTopping(toppingSO);
+                dough.SetCake(shapeSO, placeItem);
+
+                shapeStation.SetNewCake();
+
+                Cake cake = shapeStation.GetComponentInChildren<Cake>();
+                cake.SetShape(shapeSO);
             }
         }
     }

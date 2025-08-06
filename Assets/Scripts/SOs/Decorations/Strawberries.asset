@@ -9,10 +9,9 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c31a87a2c05db44408cefd30c23b42b0, type: 3}
-  m_Name: YellowTopping
+  m_Script: {fileID: 11500000, guid: 9abe1227c6d44c04faeaf1a0731764e5, type: 3}
+  m_Name: Strawberries
   m_EditorClassIdentifier: 
-  toppingName: Yellow
+  decorationName: Strawberries
   sprite: {fileID: 0}
-  prefabRound: {fileID: 8201370368692729302, guid: 1576875fffe5f1a4883c19e061f8f08c, type: 3}
-  prefabSquare: {fileID: 8201370368692729302, guid: 21d42694feff2244291c65c978dbe5d4, type: 3}
+  prefab: {fileID: 5830317747258871032, guid: 898f008b2de2def48a895706b0a3a09d, type: 3}

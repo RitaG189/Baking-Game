@@ -13,12 +13,15 @@ public class PlayerManager : MonoBehaviour
             Destroy(gameObject);
     }
 
-    public GameObject GetCakeOnHands()
+    public GameObject GetItemOnHands()
     {
-        GameObject cake = playerHand.GetComponentInChildren<Cake>()?.gameObject;
-
+        var cake = playerHand.GetComponentInChildren<Cake>()?.gameObject;
         if (cake != null)
             return cake;
+
+        var dough = playerHand.GetComponentInChildren<Dough>()?.gameObject;
+        if (dough != null)
+            return dough;
 
         return null;
     }
